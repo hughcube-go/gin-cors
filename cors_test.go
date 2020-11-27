@@ -19,6 +19,16 @@ func TestSpec(t *testing.T) {
 		resBody    string
 	}{
 		{
+			name:       "no config",
+			cors:       &Cors{},
+			method:     http.MethodGet,
+			reqHeaders: map[string]string{},
+			resHeaders: map[string]string{},
+			resCode:    http.StatusOK,
+			resBody:    "{\"Hello\":\"World\"}",
+		},
+
+		{
 			name:   "PreflightRequest",
 			cors:   &Cors{},
 			method: http.MethodOptions,
